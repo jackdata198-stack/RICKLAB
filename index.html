@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="李浚瑋（竹東小李）｜台慶不動產。竹東下公館大樓、透天、土地。先看懂生活與價值，再決定家的位置。">
+<meta property="og:title" content="RICK-LAB｜竹東小李 李浚瑋">
+<meta property="og:description" content="用市場真話，陪你先看懂生活與價值，再決定家的位置。">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>RICK-LAB</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: 地籍圖研究筆記 — 細方格底、地號式標籤，單欄敘事 + 雙欄重點區塊 */
+:root{
+  --bg:#f3f5f4;
+  --paper:#ffffff;
+  --ink:#16302b;
+  --muted:#55685f;
+  --line:#d3dcd8;
+  --grid:rgba(22,48,43,.055);
+  --accent:#1f5f52;
+  --accent-ink:#ffffff;
+  --mark:#f2d55c;
+  --mark-ink:#16302b;
+  --line-green:#06c755;
+  --warn:#9a5b12;
+  --f-display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --f-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --r:6px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1715;--paper:#16211e;--ink:#e3ece8;--muted:#9db1a8;--line:#2b3a36;--grid:rgba(227,236,232,.045);
+  --accent:#5fb3a0;--accent-ink:#0b1412;--mark:#e6c84a;--mark-ink:#0f1715;--warn:#e0a456;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1715;--paper:#16211e;--ink:#e3ece8;--muted:#9db1a8;--line:#2b3a36;--grid:rgba(227,236,232,.045);
+  --accent:#5fb3a0;--accent-ink:#0b1412;--mark:#e6c84a;--mark-ink:#0f1715;--warn:#e0a456;color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  background-color:var(--bg);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px;
+  color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.75;
+  padding-bottom:calc(72px + env(safe-area-inset-bottom,0px));
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--mark);outline-offset:2px}
+h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--paper);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:20px;padding-block:12px}
+.brand{font-family:var(--f-mono);font-weight:600;letter-spacing:.08em;text-decoration:none;color:var(--ink);font-size:15px;white-space:nowrap}
+.brand span{color:var(--muted);font-weight:400}
+.nav{display:flex;gap:18px;margin-left:auto;font-size:14px}
+.nav a{color:var(--muted);text-decoration:none}
+.nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:var(--r);padding:10px 16px;font:500 15px/1.2 var(--f-body);text-decoration:none;cursor:pointer;border:1px solid transparent;white-space:nowrap}
+.btn-line{background:var(--line-green);color:#fff}
+.btn-line:hover{filter:brightness(.94)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn-solid{background:var(--accent);color:var(--accent-ink)}
+.top .btn{padding:8px 14px;font-size:14px}
+@media (max-width:760px){.nav{display:none}.top .btn{margin-left:auto}}
+
+/* sections */
+section{padding-block:72px;border-top:1px solid var(--line)}
+.tag{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:14px}
+.h2{font-family:var(--f-display);font-weight:900;font-size:clamp(26px,3.6vw,36px);line-height:1.3;margin-bottom:14px}
+.lede{color:var(--muted);max-width:40em}
+mark{background:linear-gradient(transparent 58%,var(--mark) 58%);color:inherit;padding:0 2px}
+
+/* hero */
+.hero{padding-block:56px 64px;border-top:0}
+.hero-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:48px;align-items:start}
+.hero-grid>*{min-width:0}
+.hero h1{font-family:var(--f-display);font-weight:900;font-size:clamp(34px,5.6vw,58px);line-height:1.22;letter-spacing:.01em;margin:6px 0 22px}
+.hero .who{font-size:17px;max-width:34em;margin-bottom:28px}
+.hero .who b{font-weight:700}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.parcel{background:var(--paper);border:1px solid var(--ink);border-radius:2px;padding:22px 22px 18px;position:relative}
+.parcel-head{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:12px;color:var(--muted);border-bottom:1px dashed var(--line);padding-bottom:10px;margin-bottom:14px}
+.parcel h3{font-family:var(--f-display);font-size:19px;margin-bottom:12px}
+.layers{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.layers li{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start}
+.layers .n{font-family:var(--f-mono);font-size:13px;border:1px solid var(--ink);text-align:center;line-height:26px;height:28px}
+.layers b{display:block;font-size:15px}
+.layers span{font-size:14px;color:var(--muted);line-height:1.6}
+.parcel-foot{margin-top:16px;font-size:13px;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr;gap:32px}}
+
+/* why */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:36px;border:1px solid var(--line);background:var(--paper)}
+.why article{padding:26px 24px;border-right:1px solid var(--line);min-width:0}
+.why article:last-child{border-right:0}
+.why .k{font-family:var(--f-mono);font-size:12px;color:var(--accent);letter-spacing:.08em;margin-bottom:8px;display:block}
+.why h3{font-size:19px;margin-bottom:10px;line-height:1.45}
+.why p{font-size:15px;color:var(--muted)}
+@media (max-width:860px){.why{grid-template-columns:1fr}.why article{border-right:0;border-bottom:1px solid var(--line)}.why article:last-child{border-bottom:0}}
+.facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:28px;font-size:14px;color:var(--muted)}
+.facts b{color:var(--ink);font-family:var(--f-mono);font-weight:500;margin-right:6px}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:36px}
+.svc article{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:24px;min-width:0;display:flex;flex-direction:column;gap:10px}
+.svc .for{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.svc h3{font-size:20px}
+.svc p{font-size:15px}
+.svc ul{margin:4px 0 0;padding-left:1.2em;font-size:14px;color:var(--muted)}
+.svc .get{font-size:13px;font-weight:700;color:var(--ink);margin-top:6px}
+@media (max-width:760px){.svc{grid-template-columns:1fr}}
+
+/* process */
+.steps{list-style:none;padding:0;margin:36px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:2px solid var(--ink)}
+.steps li{padding:18px 18px 0 0;min-width:0}
+.steps .n{font-family:var(--f-mono);font-size:13px;color:var(--accent);display:block;margin-bottom:6px}
+.steps b{display:block;font-size:17px;margin-bottom:6px}
+.steps span{font-size:14px;color:var(--muted)}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr;row-gap:24px}}
+@media (max-width:480px){.steps{grid-template-columns:1fr}}
+
+/* cases */
+.note{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--warn);border:1px dashed var(--warn);border-radius:var(--r);padding:12px 14px;margin-top:24px}
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.case{background:var(--paper);border:1px dashed var(--line);border-radius:var(--r);padding:22px;min-width:0;display:flex;flex-direction:column;gap:12px}
+.case .meta{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--f-mono);font-size:12px;border:1px solid var(--line);border-radius:99px;padding:2px 10px;color:var(--muted)}
+.case dl{margin:0;display:grid;gap:8px}
+.case dt{font-size:12px;color:var(--muted);letter-spacing:.06em}
+.case dd{margin:0;font-size:14px}
+.ph{color:var(--muted);font-style:normal;background:repeating-linear-gradient(90deg,var(--grid) 0 6px,transparent 6px 10px)}
+.quote{border-top:1px dashed var(--line);padding-top:12px;font-size:14px;color:var(--muted)}
+@media (max-width:900px){.cases{grid-template-columns:1fr}}
+
+/* tools */
+.tabs{display:flex;gap:4px;margin-top:32px;border-bottom:1px solid var(--line);overflow-x:auto}
+.tab{background:none;border:0;border-bottom:3px solid transparent;padding:10px 16px;font:500 15px var(--f-body);color:var(--muted);cursor:pointer;white-space:nowrap}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tool{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px}
+.tool>*{min-width:0}
+.form{display:grid;gap:14px}
+.field{display:grid;gap:6px}
+.field label{font-size:14px;font-weight:500}
+.field small{font-size:12px;color:var(--muted)}
+.inp{display:flex;align-items:center;border:1px solid var(--line);border-radius:var(--r);background:var(--paper)}
+.inp:focus-within{border-color:var(--accent)}
+.inp input,.inp select{flex:1;min-width:0;border:0;background:transparent;color:var(--ink);font:500 16px var(--f-mono);padding:10px 12px}
+.inp input:focus,.inp select:focus{outline:none}
+.inp .u{padding:0 12px;font-size:13px;color:var(--muted);white-space:nowrap}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:14px}
+.check input{margin-top:5px;accent-color:var(--accent)}
+.result{background:var(--paper);border:1px solid var(--ink);border-radius:2px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.result .big{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:clamp(30px,4.4vw,40px);font-weight:600;line-height:1.1}
+.result .big small{font-size:15px;font-weight:400;color:var(--muted);margin-left:6px}
+.kv{display:grid;grid-template-columns:1fr auto;gap:8px 16px;font-size:14px;border-top:1px dashed var(--line);padding-top:12px}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0;font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right}
+.verdict{font-size:14px;border-left:3px solid var(--accent);padding-left:12px}
+.disclaim{font-size:12px;color:var(--muted)}
+.share{display:flex;flex-wrap:wrap;gap:10px}
+.share .btn{font-size:14px;padding:8px 12px}
+.status{font-size:13px;color:var(--accent);min-height:1.2em}
+@media (max-width:860px){.tool{grid-template-columns:1fr}}
+
+/* contact */
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;margin-top:32px}
+.contact>*{min-width:0}
+.line-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:grid;gap:14px;align-content:start}
+.line-id{font-family:var(--f-mono);font-size:28px;font-weight:600;user-select:all}
+.field textarea{width:100%;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);color:var(--ink);font:15px/1.6 var(--f-body);padding:10px 12px;resize:vertical;min-height:96px}
+.field textarea:focus{outline:none;border-color:var(--accent)}
+.inp input[type=text]{font-family:var(--f-body)}
+.preview{white-space:pre-wrap;font-size:13px;background:var(--bg);border:1px dashed var(--line);border-radius:var(--r);padding:12px;color:var(--muted)}
+@media (max-width:860px){.contact{grid-template-columns:1fr}}
+
+/* footer */
+footer{border-top:2px solid var(--ink);background:var(--paper);padding-block:32px;margin-top:0}
+footer .wrap{display:grid;gap:14px}
+.disclosure{font-size:13px;line-height:1.9;color:var(--ink)}
+.disclosure b{font-weight:700}
+.fine{font-size:12px;color:var(--muted)}
+
+/* sticky bottom bar */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:8;background:var(--paper);border-top:1px solid var(--line);
+  padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.bar .in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.bar p{font-size:13px;color:var(--muted);flex:1;min-width:0;line-height:1.4}
+.bar p b{color:var(--ink);font-family:var(--f-mono)}
+@media (max-width:480px){.bar .hide-s{display:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">RICK-LAB <span>/ 竹東小李</span></a>
+    <nav class="nav" aria-label="主選單">
+      <a href="#why">為什麼選我</a>
+      <a href="#services">服務項目</a>
+      <a href="#cases">成交實績</a>
+      <a href="#tools">試算工具</a>
+      <a href="#contact">預約諮詢</a>
+    </nav>
+    <a class="btn btn-line" href="https://line.me/R/ti/p/%40913zbhzq" target="_blank" rel="noopener">加 LINE</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="tag">竹東下公館 ・ 大樓 / 透天 / 土地</span>
+        <h1>先看懂生活與價值，<br>再決定<mark>家的位置</mark>。</h1>
+        <p class="who">我是 <b>李浚瑋（RICK）</b>，在地人叫我竹東小李，在台慶不動產服務。我的工作順序跟一般業務相反：<b>先陪你把預算、生活圈和未來轉手性算清楚，最後才談物件</b>。不適合你的房子，我會直接說不要買。</p>
+        <div class="cta-row">
+          <a class="btn btn-line" href="https://line.me/R/ti/p/%40913zbhzq" target="_blank" rel="noopener">加 LINE 聊聊你的需求</a>
+          <a class="btn btn-ghost" href="#tools">先用試算工具算算看</a>
+        </div>
+      </div>
+      <aside class="parcel" aria-label="我判斷一間房子的四個層次">
+        <div class="parcel-head"><span>研究筆記</span><span>竹東鎮・下公館</span></div>
+        <h3>每一間房子，我都照這四層看</h3>
+        <ol class="layers">
+          <li><span class="n">1</span><div><b>地段</b><span>通勤、學區、生活機能、嫌惡設施，實際走過一遍再說。</span></div></li>
+          <li><span class="n">2</span><div><b>產品</b><span>大樓、透天、土地各有持有成本和轉手對象，先比再選。</span></div></li>
+          <li><span class="n">3</span><div><b>價格</b><span>對照同區實價登錄與競品，看清楚貴在哪、便宜的原因是什麼。</span></div></li>
+          <li><span class="n">4</span><div><b>決策理由</b><span>為什麼是這間、為什麼是現在。講不出理由的，就先不要出價。</span></div></li>
+        </ol>
+        <p class="parcel-foot">講得出理由，才值得出價。</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section id="why">
+    <div class="wrap">
+      <span class="tag">為什麼選我</span>
+      <h2 class="h2">我想當的是購屋研究員，<br>不是急著把房子塞給你的業務。</h2>
+      <p class="lede">買房、賣房一輩子沒幾次，金額又大，最怕的是被推著做決定。我會把市場真相、成交邏輯、價格判斷和風險講清楚：該進場時說明理由，該等時直接請你等。</p>
+      <div class="why">
+        <article>
+          <span class="k">在地區段價差</span>
+          <h3>同樣在竹東，不同路段的價差可能很大</h3>
+          <p>竹東的房價不能只看全鎮平均。我長期守在下公館，熟悉哪些路段有實際成交撐著，哪些只是掛價高。這會直接決定你是買貴，還是賣便宜。</p>
+        </article>
+        <article>
+          <span class="k">產品之間的取捨</span>
+          <h3>大樓、透天、土地，我能放在一起比</h3>
+          <p>同一筆預算買大樓還是透天？這塊地自己蓋、整合，還是直接賣？三種產品的持有成本、管理費、公設比和轉手對象都不同，我會並排算給你看。</p>
+        </article>
+        <article>
+          <span class="k">先釐清再推銷</span>
+          <h3>先講數據與風險，再談要不要出價</h3>
+          <p>屋況、產權、使用分區、嫌惡設施、貸款壓力，看得到的風險我先說。短期可能少成交一些，但換來的是你長期不後悔的決定。</p>
+        </article>
+      </div>
+      <div class="facts">
+        <span><b>2017</b>取得不動產營業員資格（106 年登字）</span>
+        <span><b>台慶不動產</b>竹東在地服務</span>
+        <span><b>下公館</b>主打商圈</span>
+        <span><b>3 類</b>大樓・透天・土地</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <span class="tag">服務項目</span>
+      <h2 class="h2">你在哪個階段，我就從哪裡開始。</h2>
+      <p class="lede">每項服務最後都會給你一份看得懂、可以拿來比對的判斷依據，而不是一句「我會幫你努力」。</p>
+      <div class="svc">
+        <article>
+          <span class="for">首購 ・ 換屋</span>
+          <h3>買方購屋研究</h3>
+          <p>帶看之前，先把三件事談清楚：每月實際付得起多少、通勤和小孩上學怎麼走、五到十年後好不好轉手。</p>
+          <ul>
+            <li>預算與月付壓力試算（含寬限期結束後的金額）</li>
+            <li>目標區段的實價登錄與成交行情整理</li>
+            <li>看屋時的屋況、格局、管理與嫌惡設施檢查</li>
+          </ul>
+          <p class="get">你會拿到：一份「買不買、出多少」的判斷依據</p>
+        </article>
+        <article>
+          <span class="for">屋主</span>
+          <h3>售屋策略與開價建議</h3>
+          <p>開價過高不會讓你多賺，只會讓物件在網路上掛到變舊、被大幅議價。接案之前，我先給你一份市場判斷。</p>
+          <ul>
+            <li>同區、同類型物件的掛價與實際成交對照</li>
+            <li>你的房子在競品中的位置與優缺點</li>
+            <li>銷售節奏：前期測什麼、帶看反應不好時怎麼調整</li>
+          </ul>
+          <p class="get">你會拿到：一份有數字依據的開價區間與銷售計畫</p>
+        </article>
+        <article>
+          <span class="for">地主 ・ 企業主</span>
+          <h3>土地評估與開發</h3>
+          <p>土地的價值要先看使用分區、臨路條件、地形和可建面積，再判斷該自用、合建、整合，還是直接出售。</p>
+          <ul>
+            <li>使用分區與開發限制的初步檢視</li>
+            <li>周邊土地成交行情與買方類型分析</li>
+            <li>出售、合建、持有等選項的利弊比較</li>
+          </ul>
+          <p class="get">你會拿到：選項並排比較，由你決定方向</p>
+        </article>
+        <article>
+          <span class="for">置產 ・ 資產配置</span>
+          <h3>置產與換屋規劃</h3>
+          <p>把房子放進家庭資產和下一階段人生計畫裡評估：先賣後買還是先買後賣、持有成本、稅負、資金能不能銜接。</p>
+          <ul>
+            <li>換屋順序與資金銜接的風險評估</li>
+            <li>持有成本、租金收益與轉手性試算</li>
+            <li>房地合一稅的初步估算</li>
+          </ul>
+          <p class="get">你會拿到：一份適合你家的時程與資金規劃</p>
+        </article>
+      </div>
+
+      <ol class="steps" aria-label="合作流程">
+        <li><span class="n">STEP 1</span><b>釐清需求</b><span>先聊生活、預算和時程，暫時不談物件。</span></li>
+        <li><span class="n">STEP 2</span><b>市場判斷</b><span>用實價登錄、競品和成交速度定出合理區間。</span></li>
+        <li><span class="n">STEP 3</span><b>看屋與比較</b><span>依地段、產品、價格、理由四層逐一檢查。</span></li>
+        <li><span class="n">STEP 4</span><b>談判到交屋</b><span>出價策略、議價、簽約、交屋，每一步都講清楚。</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CASES -->
+  <section id="cases">
+    <div class="wrap">
+      <span class="tag">成交實績 ・ 客戶見證</span>
+      <h2 class="h2">我想讓你看的，是判斷過程，不是成交數字。</h2>
+      <p class="lede">每個案例都依同樣的格式寫：客戶原本卡在哪、我怎麼判斷、最後的結果。所有案例都會去除可辨識的個資與門牌，並先取得客戶同意。</p>
+      <p class="note" role="note">⚠ 以下為版面格式，正式上線前會換成經客戶同意、去識別化的真實案例。</p>
+      <div class="cases">
+        <article class="case">
+          <div class="meta"><span class="chip">首購</span><span class="chip">大樓</span><span class="chip">竹東</span></div>
+          <dl>
+            <dt>客戶原本的狀況</dt><dd><em class="ph">【待填：預算、家庭狀況、原本卡住的地方】</em></dd>
+            <dt>我的判斷</dt><dd><em class="ph">【待填：比較了哪些選項、價格依據、提醒了哪些風險】</em></dd>
+            <dt>結果</dt><dd><em class="ph">【待填：成交條件或最後的決定】</em></dd>
+          </dl>
+          <p class="quote"><em class="ph">【待填：客戶同意公開的一句話回饋】</em></p>
+        </article>
+        <article class="case">
+          <div class="meta"><span class="chip">屋主</span><span class="chip">透天</span><span class="chip">下公館</span></div>
+          <dl>
+            <dt>客戶原本的狀況</dt><dd><em class="ph">【待填：屋主期待價、掛售時間、遇到的問題】</em></dd>
+            <dt>我的判斷</dt><dd><em class="ph">【待填：競品分析、開價調整理由、銷售節奏】</em></dd>
+            <dt>結果</dt><dd><em class="ph">【待填：銷售天數、成交與開價的落差】</em></dd>
+          </dl>
+          <p class="quote"><em class="ph">【待填：客戶同意公開的一句話回饋】</em></p>
+        </article>
+        <article class="case">
+          <div class="meta"><span class="chip">地主</span><span class="chip">土地</span><span class="chip">竹東</span></div>
+          <dl>
+            <dt>客戶原本的狀況</dt><dd><em class="ph">【待填：土地條件、地主的考量】</em></dd>
+            <dt>我的判斷</dt><dd><em class="ph">【待填：分區限制、買方類型、選項比較】</em></dd>
+            <dt>結果</dt><dd><em class="ph">【待填：最後的處理方式】</em></dd>
+          </dl>
+          <p class="quote"><em class="ph">【待填：客戶同意公開的一句話回饋】</em></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section id="tools">
+    <div class="wrap">
+      <span class="tag">我的試算工具</span>
+      <h2 class="h2">先自己算一次，見面時我們從數字開始談。</h2>
+      <p class="lede">試算結果只是初步參考。實際的貸款條件、稅額要以銀行核貸和申報結果為準，有疑問就把結果傳給我，我幫你一起看。</p>
+
+      <div class="tabs" role="tablist" aria-label="試算工具">
+        <button class="tab" role="tab" id="tab-loan" aria-controls="panel-loan" aria-selected="true">房貸月付試算</button>
+        <button class="tab" role="tab" id="tab-tax" aria-controls="panel-tax" aria-selected="false">售屋房地合一稅試算</button>
+      </div>
+
+      <!-- LOAN -->
+      <div class="tool" id="panel-loan" role="tabpanel" aria-labelledby="tab-loan">
+        <form class="form" id="loanForm" autocomplete="off">
+          <div class="row2">
+            <div class="field"><label for="l-price">房屋總價</label><div class="inp"><input id="l-price" type="number" inputmode="decimal" min="0" step="10" value="1280"><span class="u">萬元</span></div></div>
+            <div class="field"><label for="l-ltv">貸款成數</label><div class="inp"><input id="l-ltv" type="number" inputmode="decimal" min="0" max="100" step="5" value="80"><span class="u">%</span></div></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="l-rate">年利率</label><div class="inp"><input id="l-rate" type="number" inputmode="decimal" min="0" step="0.01" value="2.185"><span class="u">%</span></div></div>
+            <div class="field"><label for="l-years">貸款年限</label><div class="inp"><select id="l-years"><option>20</option><option selected>30</option><option>40</option></select><span class="u">年</span></div></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="l-grace">寬限期</label><div class="inp"><select id="l-grace"><option value="0" selected>不使用</option><option value="1">1 年</option><option value="2">2 年</option><option value="3">3 年</option><option value="5">5 年</option></select></div></div>
+            <div class="field"><label for="l-income">家庭月收入</label><div class="inp"><input id="l-income" type="number" inputmode="decimal" min="0" step="1000" value="110000"><span class="u">元</span></div><small>選填，用來判斷月付壓力</small></div>
+          </div>
+          <p class="disclaim">欄位已填入範例數字，請改成你自己的條件。計算方式為本息平均攤還。</p>
+        </form>
+        <div class="result" aria-live="polite">
+          <span class="tag" style="margin:0">試算結果</span>
+          <div><div class="disclaim" id="l-big-label">每月應繳</div><div class="big" id="l-month">—</div></div>
+          <dl class="kv">
+            <dt>貸款金額</dt><dd id="l-amount">—</dd>
+            <dt>自備款</dt><dd id="l-down">—</dd>
+            <dt id="l-grace-label">寬限期內月付（只繳利息）</dt><dd id="l-grace-pay">—</dd>
+            <dt>總利息</dt><dd id="l-interest">—</dd>
+            <dt>月付占收入</dt><dd id="l-ratio">—</dd>
+          </dl>
+          <p class="verdict" id="l-verdict"></p>
+          <div class="share">
+            <button type="button" class="btn btn-ghost" id="l-copy">複製結果</button>
+            <a class="btn btn-line" id="l-line" href="#" target="_blank" rel="noopener">用 LINE 分享結果</a>
+          </div>
+          <p class="status" id="l-status"></p>
+        </div>
+      </div>
+
+      <!-- TAX -->
+      <div class="tool" id="panel-tax" role="tabpanel" aria-labelledby="tab-tax" hidden>
+        <form class="form" id="taxForm" autocomplete="off">
+          <div class="row2">
+            <div class="field"><label for="t-sell">預計售價</label><div class="inp"><input id="t-sell" type="number" inputmode="decimal" min="0" step="10" value="1580"><span class="u">萬元</span></div></div>
+            <div class="field"><label for="t-cost">當初買進成本</label><div class="inp"><input id="t-cost" type="number" inputmode="decimal" min="0" step="10" value="1200"><span class="u">萬元</span></div><small>含買進時的契稅、代書費、裝修等可舉證支出</small></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="t-fee">出售費用</label><div class="inp"><input id="t-fee" type="number" inputmode="decimal" min="0" step="1" placeholder="留空自動估算"><span class="u">萬元</span></div><small>仲介費、代書費等；留空時以售價 3%、最高 30 萬估算</small></div>
+            <div class="field"><label for="t-land">土地漲價總數額</label><div class="inp"><input id="t-land" type="number" inputmode="decimal" min="0" step="1" value="0"><span class="u">萬元</span></div><small>可從土地增值稅單上查到，不確定就填 0</small></div>
+          </div>
+          <div class="field"><label for="t-hold">持有期間</label><div class="inp"><select id="t-hold">
+            <option value="2">2 年以內</option>
+            <option value="5">超過 2 年、未滿 5 年</option>
+            <option value="10" selected>5 年以上、未滿 10 年</option>
+            <option value="99">10 年以上</option>
+          </select></div></div>
+          <label class="check"><input type="checkbox" id="t-self"><span>符合自住優惠：本人、配偶或未成年子女設籍並居住滿 6 年，且持有滿 6 年、期間未出租或供營業使用</span></label>
+          <p class="disclaim">此試算適用「個人、境內居住者」出售房地合一新制（105 年以後取得）的房屋土地，不含繼承、重購退稅、預售屋等特殊情況。</p>
+        </form>
+        <div class="result" aria-live="polite">
+          <span class="tag" style="margin:0">試算結果</span>
+          <div><div class="disclaim">預估應納稅額</div><div class="big" id="t-tax">—</div></div>
+          <dl class="kv">
+            <dt>出售費用（計入）</dt><dd id="t-fee-used">—</dd>
+            <dt>課稅所得</dt><dd id="t-income">—</dd>
+            <dt>自住免稅額</dt><dd id="t-exempt">—</dd>
+            <dt>適用稅率</dt><dd id="t-rate">—</dd>
+            <dt>稅後實拿（未扣貸款）</dt><dd id="t-net">—</dd>
+          </dl>
+          <p class="verdict" id="t-verdict"></p>
+          <div class="share">
+            <button type="button" class="btn btn-ghost" id="t-copy">複製結果</button>
+            <a class="btn btn-line" id="t-line" href="#" target="_blank" rel="noopener">用 LINE 分享結果</a>
+          </div>
+          <p class="status" id="t-status"></p>
+          <p class="disclaim">稅率依現行房地合一稅 2.0 個人境內居住者規定估算，實際稅額以國稅局核定為準。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <span class="tag">預約諮詢</span>
+      <h2 class="h2">先聊聊你的生活和需求，<br>暫時不用急著看房。</h2>
+      <p class="lede">填好下面幾個欄位，按下按鈕後會把整理好的訊息帶進 LINE 官方帳號，你確認後再送出就好。</p>
+      <div class="contact">
+        <div class="line-card">
+          <span class="tag" style="margin:0">LINE 官方帳號</span>
+          <div class="line-id">@913zbhzq</div>
+          <p style="font-size:14px;color:var(--muted)">在 LINE 搜尋 ID（記得加上 @），或直接點下面的按鈕加好友。</p>
+          <div class="share">
+            <a class="btn btn-line" href="https://line.me/R/ti/p/%40913zbhzq" target="_blank" rel="noopener">加入 LINE 好友</a>
+            <button type="button" class="btn btn-ghost" id="copyId">複製 ID</button>
+          </div>
+          <p class="status" id="id-status"></p>
+        </div>
+        <form class="form" id="contactForm" autocomplete="on" novalidate>
+          <div class="row2">
+            <div class="field"><label for="c-name">怎麼稱呼你</label><div class="inp"><input id="c-name" type="text" placeholder="例如：王先生"></div></div>
+            <div class="field"><label for="c-role">你目前的身分</label><div class="inp"><select id="c-role">
+              <option>首購買方</option><option>換屋</option><option>置產</option><option>屋主想賣房</option><option>地主・土地</option><option>其他</option>
+            </select></div></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="c-area">想找的區域／物件位置</label><div class="inp"><input id="c-area" type="text" placeholder="例如：竹東下公館"></div></div>
+            <div class="field"><label for="c-budget">預算或期待價格</label><div class="inp"><input id="c-budget" type="text" placeholder="例如：1,200 萬內"></div></div>
+          </div>
+          <div class="field"><label for="c-msg">你最想先釐清的事</label><textarea id="c-msg" placeholder="例如：小孩明年要上小學，想知道竹東大樓和透天哪個比較適合我們家。"></textarea></div>
+          <div class="field"><label for="c-time">方便聯絡的時段</label><div class="inp"><select id="c-time"><option>平日白天</option><option>平日晚上</option><option>週末</option><option>都可以</option></select></div></div>
+          <div class="preview" id="c-preview" aria-live="polite"></div>
+          <div class="share">
+            <a class="btn btn-line" id="c-send" href="#" target="_blank" rel="noopener">帶入 LINE 預約諮詢</a>
+            <button type="button" class="btn btn-ghost" id="c-copy">複製訊息</button>
+          </div>
+          <p class="status" id="c-status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="disclosure">
+      <b>李浚瑋（竹東小李）｜台慶不動產</b><br>
+      LINE 官方帳號：@913zbhzq<br>
+      營業員：(106)登字第324731號<br>
+      經紀業：明樂不動產有限公司<br>
+      經紀人：謝政雄 (112)北市經證字第01172號
+    </p>
+    <p class="fine">本站試算結果僅供參考，不構成貸款核准或稅務意見。成交案例均經客戶同意並去識別化。</p>
+  </div>
+</footer>
+
+<div class="bar" role="complementary" aria-label="快速聯絡">
+  <div class="in">
+    <p><span class="hide-s">有問題直接問，</span>LINE 官方帳號 <b>@913zbhzq</b></p>
+    <a class="btn btn-line" href="https://line.me/R/ti/p/%40913zbhzq" target="_blank" rel="noopener">加 LINE</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var OA = '%40913zbhzq';
+  var $ = function(id){return document.getElementById(id)};
+  var num = function(id){var v=parseFloat($(id).value);return isFinite(v)?v:0};
+  var fmt = function(n){return Math.round(n).toLocaleString('zh-TW')};
+  var wan = function(yuan){return (yuan/10000).toLocaleString('zh-TW',{maximumFractionDigits:1})+' 萬'};
+
+  function copyText(text, statusEl){
+    var done=function(){statusEl.textContent='已複製，可以貼到任何地方。'};
+    var fail=function(){statusEl.textContent='這個瀏覽器無法自動複製，請手動選取文字複製。'};
+    try{
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,fail)}else{fail()}
+    }catch(e){fail()}
+  }
+  function lineShare(text){return 'https://line.me/R/share?text='+encodeURIComponent(text)}
+
+  /* tabs */
+  var tabs=[['tab-loan','panel-loan'],['tab-tax','panel-tax']];
+  tabs.forEach(function(p){
+    $(p[0]).addEventListener('click',function(){
+      tabs.forEach(function(q){var on=q[0]===p[0];$(q[0]).setAttribute('aria-selected',on);$(q[1]).hidden=!on});
+    });
+  });
+
+  /* loan */
+  var loanText='';
+  function pmt(P,r,n){if(n<=0)return 0;if(r===0)return P/n;return P*r/(1-Math.pow(1+r,-n))}
+  function calcLoan(){
+    var price=num('l-price')*10000, ltv=Math.min(Math.max(num('l-ltv'),0),100)/100;
+    var rate=num('l-rate')/100/12, years=parseInt($('l-years').value,10), grace=parseInt($('l-grace').value,10);
+    var income=num('l-income');
+    var P=price*ltv, down=price-P;
+    var nAll=years*12, nG=Math.min(grace*12,nAll-12), nPay=nAll-nG;
+    var m=pmt(P,rate,nPay), gPay=P*rate;
+    var totalInt=m*nPay+gPay*nG-P;
+    $('l-amount').textContent=wan(P);
+    $('l-down').textContent=wan(down);
+    $('l-big-label').textContent=grace>0?'寬限期結束後每月應繳':'每月應繳';
+    $('l-month').innerHTML=fmt(m)+'<small>元</small>';
+    $('l-grace-pay').textContent=grace>0?fmt(gPay)+' 元':'未使用';
+    $('l-interest').textContent=wan(totalInt);
+    var ratio=income>0?m/income:0;
+    $('l-ratio').textContent=income>0?(ratio*100).toFixed(1)+'%':'未填';
+    var v;
+    if(P<=0){v='請輸入總價與貸款成數。'}
+    else if(income<=0){v='填入家庭月收入，可以幫你判斷月付壓力。'}
+    else if(ratio<=0.3){v='月付在收入的三成以內，壓力相對可控。還是要預留緊急預備金，以及利率上升的空間。'}
+    else if(ratio<=0.4){v='月付占收入三到四成，可以負擔但偏緊。建議再算算利率上升 0.5% 時的情況，也別把自備款全部用光。'}
+    else{v='月付超過收入四成，壓力偏高。建議調整總價帶、拉長年限或提高自備款，不要硬撐。'}
+    if(grace>0&&P>0){v+=' 寬限期結束後，月付會從 '+fmt(gPay)+' 元跳到 '+fmt(m)+' 元，請以這個金額評估。'}
+    $('l-verdict').textContent=v;
+    loanText='【RICK-LAB 房貸試算】\n總價 '+wan(price)+'，貸款 '+(ltv*100).toFixed(0)+'%（'+wan(P)+'）\n利率 '+num('l-rate')+'%，'+years+' 年'+(grace>0?'，寬限期 '+grace+' 年':'')+'\n'+(grace>0?'寬限期月付 '+fmt(gPay)+' 元，之後':'')+'每月 '+fmt(m)+' 元\n總利息約 '+wan(totalInt)+(income>0?'\n月付占收入 '+(ratio*100).toFixed(1)+'%':'')+'\n—— 竹東小李 LINE @913zbhzq';
+    $('l-line').href=lineShare(loanText);
+  }
+  $('loanForm').addEventListener('input',calcLoan);
+  $('loanForm').addEventListener('change',calcLoan);
+  $('loanForm').addEventListener('submit',function(e){e.preventDefault()});
+  $('l-copy').addEventListener('click',function(){copyText(loanText,$('l-status'))});
+
+  /* tax */
+  var taxText='';
+  function calcTax(){
+    var sell=num('t-sell')*10000, cost=num('t-cost')*10000;
+    var feeRaw=$('t-fee').value.trim();
+    var fee=feeRaw===''?Math.min(sell*0.03,300000):num('t-fee')*10000;
+    var land=num('t-land')*10000;
+    var hold=parseInt($('t-hold').value,10), self=$('t-self').checked;
+    var income=sell-cost-fee-land;
+    var rate,exempt=0,taxable,rateLabel;
+    if(self){exempt=4000000;rate=0.10;rateLabel='10%（自住優惠）'}
+    else if(hold===2){rate=0.45;rateLabel='45%（2 年以內）'}
+    else if(hold===5){rate=0.35;rateLabel='35%（2 年至 5 年）'}
+    else if(hold===10){rate=0.20;rateLabel='20%（5 年至 10 年）'}
+    else{rate=0.15;rateLabel='15%（10 年以上）'}
+    taxable=Math.max(income-exempt,0);
+    var tax=taxable*rate;
+    $('t-fee-used').textContent=wan(fee)+(feeRaw===''?'（自動估算）':'');
+    $('t-income').textContent=income<0?'虧損 '+wan(-income):wan(income);
+    $('t-exempt').textContent=self?'400 萬':'不適用';
+    $('t-rate').textContent=rateLabel;
+    $('t-tax').innerHTML=fmt(tax)+'<small>元</small>';
+    $('t-net').textContent=wan(sell-fee-tax);
+    var v;
+    if(income<=0){v='依你填的數字沒有獲利，原則上不用繳房地合一稅，但仍需在完成登記後 30 天內申報。'}
+    else if(self&&tax===0){v='符合自住優惠，獲利在 400 萬以內免稅。設籍、居住和未出租的條件要能舉證，送件前先確認清楚。'}
+    else if(!self&&hold<=5){v='持有未滿 5 年，稅率偏高。若時程不急，可以評估等持有年限跨過門檻再賣，稅負的差距可能比議價空間還大。'}
+    else{v='記得保留當初買進與裝修的單據，可以舉證的成本越完整，課稅所得就越低。'}
+    $('t-verdict').textContent=v;
+    taxText='【RICK-LAB 房地合一稅試算】\n售價 '+wan(sell)+'，成本 '+wan(cost)+'，費用 '+wan(fee)+'\n課稅所得 '+(income<0?'虧損 '+wan(-income):wan(income))+'\n稅率 '+rateLabel+'\n預估稅額 '+fmt(tax)+' 元\n—— 竹東小李 LINE @913zbhzq';
+    $('t-line').href=lineShare(taxText);
+  }
+  $('taxForm').addEventListener('input',calcTax);
+  $('taxForm').addEventListener('change',calcTax);
+  $('taxForm').addEventListener('submit',function(e){e.preventDefault()});
+  $('t-copy').addEventListener('click',function(){copyText(taxText,$('t-status'))});
+
+  /* contact */
+  var msgText='';
+  function buildMsg(){
+    var name=$('c-name').value.trim()||'（未填）';
+    var area=$('c-area').value.trim()||'（未填）';
+    var budget=$('c-budget').value.trim()||'（未填）';
+    var msg=$('c-msg').value.trim()||'（未填）';
+    msgText='你好，我想預約諮詢。\n稱呼：'+name+'\n身分：'+$('c-role').value+'\n區域／物件：'+area+'\n預算／期待價格：'+budget+'\n想先釐清：'+msg+'\n方便聯絡：'+$('c-time').value;
+    $('c-preview').textContent=msgText;
+    $('c-send').href='https://line.me/R/oaMessage/'+OA+'/?'+encodeURIComponent(msgText);
+  }
+  $('contactForm').addEventListener('input',buildMsg);
+  $('contactForm').addEventListener('change',buildMsg);
+  $('contactForm').addEventListener('submit',function(e){e.preventDefault()});
+  $('c-copy').addEventListener('click',function(){copyText(msgText,$('c-status'))});
+  $('c-send').addEventListener('click',function(){$('c-status').textContent='若 LINE 沒有自動開啟，請按「複製訊息」，再貼到 LINE 官方帳號 @913zbhzq。'});
+  $('copyId').addEventListener('click',function(){copyText('@913zbhzq',$('id-status'))});
+
+  calcLoan();calcTax();buildMsg();
+})();
+</script>
+</body>
+</html>
